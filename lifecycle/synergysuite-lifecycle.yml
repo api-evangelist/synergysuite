@@ -1,0 +1,75 @@
+generated: '2026-08-29'
+method: probed
+source: https://status.synergysuite.com/api/v2/summary.json
+status_page:
+  present: true
+  url: https://status.synergysuite.com/
+  provider: Atlassian Statuspage
+  machine_readable: true
+  api: https://status.synergysuite.com/api/v2/summary.json
+  feeds:
+  - https://status.synergysuite.com/history.atom
+  - https://status.synergysuite.com/history.rss
+  history: https://status.synergysuite.com/history
+  uptime: https://status.synergysuite.com/uptime
+  subscribe: true
+  observed:
+    fetched: '2026-08-29'
+    http_status: 200
+    page_name: SynergySuite
+    indicator: none
+    description: All Systems Operational
+  components:
+  - name: Web Interface
+  - name: Mobile Applications
+  - name: POS Integrations
+    note: >-
+      The point-of-sale integration surface is monitored as a first-class
+      component, which is direct evidence that SynergySuite operates an
+      integration/API surface in production.
+  - name: Tableau
+  - name: EDI
+    note: Electronic data interchange surface for supplier/vendor exchange.
+  - name: Data Services
+    note: Data exchange surface for accounting, payroll and HR systems.
+sla:
+  published: true
+  availability: 99.9%
+  window: any given month
+  exclusions: scheduled outages
+  source: https://www.synergysuite.com/legal/
+  note: >-
+    Stated in the Master Software License and Services Agreement between the
+    customer and SynergySuite, Inc. (a Delaware corporation). Recorded from the
+    published legal agreement; the page itself could not be fetched directly
+    because www.synergysuite.com returns 403 to automated clients.
+versioning:
+  policy_published: false
+  note: >-
+    No public API versioning policy found. There is no public developer portal,
+    reference or changelog on any SynergySuite host; the partner portal that
+    would carry one requires a login.
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  rfc8594: unknown
+  note: >-
+    No deprecation or sunset policy is published publicly. RFC 8594
+    Sunset/Deprecation header support could not be observed because no
+    unauthenticated API endpoint is reachable.
+data_retention:
+  published: true
+  terms: >-
+    Customer data is retained for the length of the agreement. On termination
+    data can be exported or deleted on request, and is removed three months
+    after termination.
+  source: https://www.synergysuite.com/gdpr-data-protection/
+deprecated_operations: []
+x-evidence:
+- url: https://status.synergysuite.com/api/v2/summary.json
+  status: 200
+- url: https://status.synergysuite.com/
+  status: 200
+- url: https://www.synergysuite.com/legal/
+  status: 403
+  note: bot challenge; content read from the indexed public page

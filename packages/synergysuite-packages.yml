@@ -1,0 +1,42 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  Registry searches on 2026-08-29 against npm, PyPI, RubyGems, crates.io and
+  the GitHub search API for "synergysuite".
+package_count: 0
+official_count: 0
+packages: []
+findings:
+- registry: npm
+  query: synergysuite
+  endpoint: https://registry.npmjs.org/-/v1/search?text=synergysuite
+  status: 200
+  results: 0
+- registry: pypi
+  query: synergysuite
+  endpoint: https://pypi.org/pypi/synergysuite/json
+  status: 404
+- registry: rubygems
+  query: synergysuite
+  endpoint: https://rubygems.org/api/v1/gems/synergysuite.json
+  status: 404
+- registry: crates.io
+  query: synergysuite
+  endpoint: https://crates.io/api/v1/crates/synergysuite
+  status: 403
+  note: crates.io denied the automated request; no crate named synergysuite is known.
+- registry: github
+  query: synergysuite
+  endpoint: https://api.github.com/search/users?q=synergysuite
+  status: 200
+  results: 0
+  note: >-
+    No GitHub organization or user account exists for SynergySuite. The four
+    repositories matching the name are third-party (a customer payroll ETL
+    pipeline, personal forks and an office world-cup tracker), none first-party.
+note: >-
+  SynergySuite publishes no first-party client libraries in any public package
+  registry, and operates no public source-code organization. Any integration
+  code is written against the partner-gated API directly. version/published are
+  recorded as null throughout because there is no package to read metadata for —
+  this is a checked-and-empty result, not an unchecked one.

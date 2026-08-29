@@ -1,0 +1,125 @@
+generated: '2026-08-29'
+method: probed
+source: >-
+  Direct HTTP probes of every SynergySuite host resolvable from DNS and
+  Certificate Transparency (crt.sh / certspotter) on 2026-08-29.
+summary: >-
+  SynergySuite serves no /.well-known/ discovery document on any host it
+  controls. The single 200 observed is Atlassian's own RFC 9116 security.txt,
+  served by the vendor-operated Statuspage host status.synergysuite.com; its
+  Contact/Policy fields point at atlassian.com, so it documents Atlassian's
+  disclosure program and not SynergySuite's. It is recorded here as a probe
+  result and deliberately NOT saved or credited as a SynergySuite document.
+hit_count: 0
+soft_404_control: >-
+  No catch-all 200 behaviour observed. www.synergysuite.com answers 403 (103
+  bytes) to every path including /robots.txt — a WAF/CDN bot challenge, not a
+  soft 404. partners./support.synergysuite.com return a genuine 404 (1815
+  bytes), cheers.synergysuite.com returns a 404 (34684 bytes), and
+  status.synergysuite.com returns 404 with a 0-byte body. Distinct status
+  codes and bodies per path confirm none of these hosts is a catch-all.
+hosts:
+- host: https://www.synergysuite.com
+  note: >-
+    Marketing host on Kinsta behind Cloudflare. Every path returns 403 to an
+    automated client, so these are bot-challenge results, not absence proofs.
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+- host: https://partners.synergysuite.com
+  note: Freshdesk partner portal; unauthenticated requests 302 to /support/login.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://support.synergysuite.com
+  note: Freshdesk customer support portal; unauthenticated requests 302 to /support/login.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://cheers.synergysuite.com
+  note: Secondary marketing site (200 on root, 404 on every well-known path).
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://vsaq.synergysuite.com
+  note: >-
+    Self-hosted Google VSAQ (Vendor Security Assessment Questionnaire)
+    instance. Root returns 200 with the VSAQ application; all other paths
+    return 403 with an application/xml body (S3-style origin denial).
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+- host: https://status.synergysuite.com
+  note: >-
+    Atlassian Statuspage, vendor-operated on SynergySuite's subdomain. The
+    security.txt returned here is ATLASSIAN'S (Contact/Policy resolve to
+    atlassian.com), not SynergySuite's, so it is not saved and earns no
+    SecurityTxt pointer.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    owner: atlassian
+    note: >-
+      RFC 9116 document belonging to Atlassian (PGP-signed, Contact
+      https://www.atlassian.com/...). Vendor-owned; not a SynergySuite surface.
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404

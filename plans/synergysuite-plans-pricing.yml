@@ -1,0 +1,36 @@
+generated: '2026-08-29'
+method: searched
+source: https://www.synergysuite.com/plans/
+plan_count: 0
+currency: null
+plans: []
+model:
+  billing_unit: per location, per month
+  published_prices: false
+  quote_required: true
+  minimum_commitment: >-
+    A minimum of three modules must be subscribed to, one of which must be the
+    reporting module.
+  volume_discounts: >-
+    Discounts are available based on the total number of locations and the
+    number of modules used.
+  one_time_costs: >-
+    A one-time implementation cost covers configuration and training. It varies
+    with menu and organizational complexity.
+  seats: >-
+    The monthly subscription includes unlimited user licenses at no additional
+    cost, usable on any number of devices.
+  api_pricing: null
+note: >-
+  SynergySuite publishes a pricing page but no prices. Cost is quoted per
+  location per month against the module mix, so plan_count is 0 by fact rather
+  than by omission — there are no named, priced tiers to record. No separate
+  API or integration pricing is published; API access is bundled into the
+  commercial agreement negotiated with sales.
+x-evidence:
+- url: https://www.synergysuite.com/plans/
+  status: 403
+  note: >-
+    Page exists and is search-indexed; www.synergysuite.com returns 403 to every
+    automated client, so terms were read from the indexed public page rather
+    than fetched directly.

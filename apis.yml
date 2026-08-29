@@ -1,17 +1,41 @@
 aid: synergysuite
 name: SynergySuite
-description: 'SynergySuite is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  SynergySuite is a back-of-house restaurant management platform for multi-unit
+  and enterprise restaurant operators, founded in 2011 and operating across the
+  United States, United Kingdom and Ireland. The suite covers inventory and
+  purchasing, recipe and food costing, food safety and HACCP checklists, labor
+  scheduling, cash management, human resources and business intelligence,
+  delivered through a web interface and mobile applications. Its operational
+  value depends on integration: SynergySuite ingests sales and order data from
+  point-of-sale platforms including Toast, PAR Brink, NCR Aloha, Appetize by
+  SpotOn and Oracle MICROS Simphony, and exchanges data with accounting,
+  payroll, supplier and HR systems over POS integrations, EDI and data
+  services. That integration surface is operated as a first-class product —
+  it is monitored as named components on the company status page — but the
+  API contract and reference are distributed through a partner portal that
+  requires a login rather than a public developer site.
 url: https://raw.githubusercontent.com/api-evangelist/synergysuite/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pass
 specificationVersion: '0.20'
 created: '2026-08-29'
 modified: '2026-08-29'
 tags:
 - Company
+- Restaurants
+- Hospitality
+- Restaurant Management
+- Back Of House
+- Inventory Management
+- Food Safety
+- Workforce Scheduling
+- Point Of Sale Integration
+- Business Intelligence
+- EDI
+- SaaS
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +43,54 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/synergysuite-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.synergysuite.com/
+- type: Support
+  url: https://support.synergysuite.com/
+- type: Blog
+  url: https://www.synergysuite.com/blog/
+- type: Pricing
+  url: https://www.synergysuite.com/plans/
+- type: TermsOfService
+  url: https://www.synergysuite.com/legal/
+- type: PrivacyPolicy
+  url: https://www.synergysuite.com/privacy-policy/
+- type: Compliance
+  url: https://www.synergysuite.com/gdpr-data-protection/
+- type: Lifecycle
+  url: lifecycle/synergysuite-lifecycle.yml
+- type: StatusPage
+  url: https://status.synergysuite.com/
+- type: Conformance
+  url: conformance/synergysuite-conformance.yml
+- type: LLMsTxt
+  url: llms/synergysuite-llms.txt
+x-enrichment:
+  date: '2026-08-29'
+  status: minimal
+  artifacts_added: 8
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: partner-login
+  detail: >-
+    SynergySuite runs a production integration surface — POS Integrations, EDI
+    and Data Services are separately monitored components on its own status
+    page — but distributes the API contract through partners.synergysuite.com,
+    which 302s every unauthenticated request to a Freshdesk login at
+    /support/login, and no api., docs. or developer. subdomain exists for
+    synergysuite.com in DNS or in Certificate Transparency.
+  evidence:
+  - url: https://partners.synergysuite.com/
+    status: 302
+  - url: https://partners.synergysuite.com/support/login
+    status: 302
+  - url: https://status.synergysuite.com/api/v2/summary.json
+    status: 200
+  - url: https://www.synergysuite.com/openapi.json
+    status: 403
+  - url: https://partners.synergysuite.com/openapi.json
+    status: 404
+  checked: '2026-08-29'

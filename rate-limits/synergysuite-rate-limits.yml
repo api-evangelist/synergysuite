@@ -1,0 +1,22 @@
+generated: '2026-08-29'
+method: searched
+source: >-
+  Search of every public SynergySuite surface on 2026-08-29 for published API
+  rate limits.
+limit_count: 0
+rate_limits: []
+headers: []
+exhaustion_status: null
+note: >-
+  No rate limits are published. SynergySuite operates no public developer
+  portal, API reference or documentation host, so there is no published limit,
+  window, burst allowance or runtime header contract (X-RateLimit-*,
+  RateLimit-*, Retry-After) to record. Limits could not be observed empirically
+  either, because no unauthenticated API endpoint is reachable. This is an
+  honest zero: checked, nothing published.
+x-evidence:
+- url: https://partners.synergysuite.com/
+  status: 302
+  note: redirects to /support/login
+- url: https://www.synergysuite.com/
+  status: 403
