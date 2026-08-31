@@ -1,0 +1,11 @@
+{
+  "repo": "synergysuite",
+  "feeds": [
+    {
+      "source": "https://support.synergysuite.com/",
+      "error": "HTTPError"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-30T22:33:40Z"
+}
